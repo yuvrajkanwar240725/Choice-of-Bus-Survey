@@ -5,20 +5,19 @@ text-align:center;
 line-height:1.6;
 }
 
-/* Intro section styling */
+/* Intro section */
 #intro{
-max-width:800px;
+max-width:900px;
 margin:auto;
 padding:20px;
-background:#f7f7f7;
-border-radius:8px;
 }
 
-/* Fix paragraph width */
-#intro p{
-max-width:700px;
-margin:10px auto;
+/* Single paragraph formatting */
+.intro-text{
+max-width:850px;
+margin:15px auto;
 text-align:left;
+line-height:1.6;
 }
 
 /* Choice cards container */
@@ -28,7 +27,7 @@ flex-wrap:wrap;
 justify-content:center;
 }
 
-/* Card design */
+/* Card style */
 .card{
 border:1px solid #ccc;
 padding:15px;
