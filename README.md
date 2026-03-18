@@ -1,2 +1,2 @@
-# Choice-of-Bus-Survey
 Bus choice survey Chandigarh–Shimla
+This survey examines travel preferences for bus services between Chandigarh and Shimla. Respondents will be presented with several travel scenarios involving three types of buses: Non-AC Bus, Electric Bus, and AC Volvo Bus. Each option will differ in terms of fare, travel time, and service reliability. Participants are asked to select the option they would prefer in each scenario. The information collected will help understand traveler preferences and evaluate the potential acceptance of electric buses as a sustainable transport alternative. All responses will be used for academic research purposes only.
