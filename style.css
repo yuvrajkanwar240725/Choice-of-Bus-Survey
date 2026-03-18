@@ -2,14 +2,33 @@ body{
 font-family: Arial;
 margin:20px;
 text-align:center;
+line-height:1.6;
 }
 
+/* Intro section styling */
+#intro{
+max-width:800px;
+margin:auto;
+padding:20px;
+background:#f7f7f7;
+border-radius:8px;
+}
+
+/* Fix paragraph width */
+#intro p{
+max-width:700px;
+margin:10px auto;
+text-align:left;
+}
+
+/* Choice cards container */
 #cards{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 }
 
+/* Card design */
 .card{
 border:1px solid #ccc;
 padding:15px;
@@ -19,6 +38,7 @@ border-radius:10px;
 box-shadow:0px 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Buttons */
 button{
 padding:10px 15px;
 background:#2c7be5;
@@ -29,6 +49,7 @@ cursor:pointer;
 font-size:16px;
 }
 
+/* Mobile responsive */
 @media (max-width:768px){
 
 .card{
