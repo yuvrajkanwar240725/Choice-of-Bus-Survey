@@ -2,35 +2,43 @@
 <html>
 
 <head>
+
 <title>Bus Choice Survey</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <h1>Chandigarh – Shimla Bus Travel Survey</h1>
 
+
 <!-- INTRO -->
+
 <div id="intro">
+
 <p>
 Assume you are travelling between Chandigarh and Shimla.
 A new Electric Bus service may be introduced.
-Please select your preferred option.
+Please select the bus you would prefer in each scenario.
 </p>
 
 <button onclick="showSection('socio')">Start Survey</button>
+
 </div>
 
 
-<!-- SOCIO DEMOGRAPHIC -->
+<!-- SOCIO DEMOGRAPHICS -->
+
 <div id="socio" style="display:none">
 
 <h2>About You</h2>
 
 <label>Age</label><br>
+
 <select id="age">
 <option value="young">18–30</option>
 <option value="mid">31–50</option>
@@ -40,6 +48,7 @@ Please select your preferred option.
 <br><br>
 
 <label>Income</label><br>
+
 <select id="income">
 <option value="low">Below ₹5 Lakh</option>
 <option value="mid">₹5–10 Lakh</option>
@@ -48,7 +57,8 @@ Please select your preferred option.
 
 <br><br>
 
-<label>Travel Frequency</label><br>
+<label>Travel Frequency (Chandigarh–Shimla)</label><br>
+
 <select id="frequency">
 <option value="rare">Rare</option>
 <option value="regular">1–2 times/year</option>
@@ -62,13 +72,19 @@ Please select your preferred option.
 </div>
 
 
-<!-- CHOICE CARDS -->
+<!-- CHOICE EXPERIMENT -->
+
 <div id="choice" style="display:none">
+
 <h2>Choose Your Preferred Bus</h2>
+
 <div id="cards"></div>
+
 </div>
+
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
