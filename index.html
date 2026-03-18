@@ -3,6 +3,9 @@
 
 <head>
 <title>Bus Choice Survey</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,23 +13,24 @@
 
 <h1>Chandigarh – Shimla Bus Travel Survey</h1>
 
+<!-- INTRO -->
 <div id="intro">
-
 <p>
-This survey studies travel preferences between Chandigarh and Shimla.
+Assume you are travelling between Chandigarh and Shimla.
 A new Electric Bus service may be introduced.
+Please select your preferred option.
 </p>
 
 <button onclick="showSection('socio')">Start Survey</button>
-
 </div>
 
 
+<!-- SOCIO DEMOGRAPHIC -->
 <div id="socio" style="display:none">
 
-<h2>Socio-Demographic Information</h2>
+<h2>About You</h2>
 
-<label>Age</label>
+<label>Age</label><br>
 <select id="age">
 <option value="young">18–30</option>
 <option value="mid">31–50</option>
@@ -35,7 +39,7 @@ A new Electric Bus service may be introduced.
 
 <br><br>
 
-<label>Income</label>
+<label>Income</label><br>
 <select id="income">
 <option value="low">Below ₹5 Lakh</option>
 <option value="mid">₹5–10 Lakh</option>
@@ -44,7 +48,7 @@ A new Electric Bus service may be introduced.
 
 <br><br>
 
-<label>Travel Frequency (Chandigarh–Shimla)</label>
+<label>Travel Frequency</label><br>
 <select id="frequency">
 <option value="rare">Rare</option>
 <option value="regular">1–2 times/year</option>
@@ -58,12 +62,10 @@ A new Electric Bus service may be introduced.
 </div>
 
 
+<!-- CHOICE CARDS -->
 <div id="choice" style="display:none">
-
-<h2>Choose your preferred bus</h2>
-
+<h2>Choose Your Preferred Bus</h2>
 <div id="cards"></div>
-
 </div>
 
 <script src="script.js"></script>
