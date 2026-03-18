@@ -1,11 +1,22 @@
-let designData = [];
-let selectedSets = [];
-let currentSet = 0;
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzx7xJIDuvDyqDIOorJwhibFqA9lf_ej_I0lO_umCUhAeYojFvazNKjvvrr9qcZU_-KHQ/exec";
 
+let designData=[];
+let selectedSets=[];
+let currentSet=0;
+let socioData={};
+
+/* Image paths */
+let imageMap={
+non_ac:"images/non_ac.jpg",
+electric:"images/electric.jpg",
+volvo:"images/volvo.jpg"
+};
+
+/* Load design */
 fetch("design.json")
-.then(res => res.json())
-.then(data => {
-designData = data;
+.then(res=>res.json())
+.then(data=>{
+designData=data;
 });
 
 
@@ -20,89 +31,84 @@ document.getElementById(id).style.display="block";
 }
 
 
+/* START EXPERIMENT */
 function startExperiment(){
 
 showSection("choice");
 
-let income = document.getElementById("income").value;
-let freq = document.getElementById("frequency").value;
-let age = document.getElementById("age").value;
+/* Capture socio data */
+socioData.age=document.getElementById("age").value;
+socioData.income=document.getElementById("income").value;
+socioData.frequency=document.getElementById("frequency").value;
+
+let filteredDesign=designData;
 
 
-let filteredDesign = designData;
+/* 🔥 Dynamic Logic */
 
-
-/* Dynamic Logic */
-
-if(income === "low"){
-filteredDesign = designData.filter(set =>
-set.non_ac.fare <= 500
-);
+if(socioData.income==="low"){
+filteredDesign=designData.filter(set=>set.non_ac.fare<=500);
 }
 
-if(income === "high"){
-filteredDesign = designData.filter(set =>
-set.volvo.fare >= 1100
-);
+if(socioData.income==="high"){
+filteredDesign=designData.filter(set=>set.volvo.fare>=1100);
 }
 
-if(freq === "frequent"){
-filteredDesign = designData.filter(set =>
-set.volvo.time <= 7
-);
-}
-
-if(age === "old"){
-filteredDesign = designData.filter(set =>
-set.volvo.rel >= 90
-);
+if(socioData.frequency==="frequent"){
+filteredDesign=designData.filter(set=>set.volvo.time<=7);
 }
 
 
-/* Randomize choice sets */
+/* Select 3 random sets */
+selectedSets=shuffle(filteredDesign).slice(0,3);
 
-selectedSets = shuffle(filteredDesign).slice(0,3);
-
-currentSet = 0;
+currentSet=0;
 
 showSet();
 
 }
 
 
+/* Shuffle */
 function shuffle(array){
 return array.sort(()=>Math.random()-0.5);
 }
 
 
+/* SHOW CHOICE SET */
 function showSet(){
 
-let set = selectedSets[currentSet];
+let set=selectedSets[currentSet];
 
-let container = document.getElementById("cards");
+let container=document.getElementById("cards");
 
-container.innerHTML = "<h3>Choice Set "+(currentSet+1)+"</h3>";
+container.innerHTML="<h3>Choice Set "+(currentSet+1)+"</h3>";
 
 ["non_ac","electric","volvo"].forEach(type=>{
 
-let d = set[type];
+let d=set[type];
 
 let names={
-non_ac:"Non AC Bus",
+non_ac:"Non-AC Bus",
 electric:"Electric Bus",
 volvo:"AC Volvo Bus"
 };
 
 let card=document.createElement("div");
-
 card.className="card";
 
 card.innerHTML=`
+
 <h4>${names[type]}</h4>
+
+<img src="${imageMap[type]}">
+
 Fare: ₹${d.fare}<br>
 Travel Time: ${d.time} hr<br>
 Reliability: ${d.rel}%<br><br>
+
 <button onclick="selectOption('${type}')">Select</button>
+
 `;
 
 container.appendChild(card);
@@ -112,20 +118,29 @@ container.appendChild(card);
 }
 
 
+/* SAVE RESPONSE */
 function selectOption(choice){
+
+let payload={
+age:socioData.age,
+income:socioData.income,
+frequency:socioData.frequency,
+set:currentSet+1,
+choice:choice
+};
+
+fetch(SCRIPT_URL,{
+method:"POST",
+body:JSON.stringify(payload)
+});
+
 
 currentSet++;
 
-if(currentSet < selectedSets.length){
-
+if(currentSet<selectedSets.length){
 showSet();
-
-}
-
-else{
-
-document.getElementById("cards").innerHTML="<h3>Thank you for completing the survey</h3>";
-
+}else{
+document.getElementById("cards").innerHTML="<h3>Thank you for completing the survey!</h3>";
 }
 
 }
