@@ -8,15 +8,17 @@
 
 <body>
 
-<h1>Chandigarh–Shimla Bus Choice Survey</h1>
+<h1>Chandigarh – Shimla Bus Travel Survey</h1>
 
 <div id="intro">
+
 <p>
 This survey studies travel preferences between Chandigarh and Shimla.
 A new Electric Bus service may be introduced.
 </p>
 
 <button onclick="showSection('socio')">Start Survey</button>
+
 </div>
 
 
@@ -24,7 +26,7 @@ A new Electric Bus service may be introduced.
 
 <h2>Socio-Demographic Information</h2>
 
-Age:
+<label>Age</label>
 <select id="age">
 <option value="young">18–30</option>
 <option value="mid">31–50</option>
@@ -33,8 +35,7 @@ Age:
 
 <br><br>
 
-Income:
-
+<label>Income</label>
 <select id="income">
 <option value="low">Below ₹5 Lakh</option>
 <option value="mid">₹5–10 Lakh</option>
@@ -43,8 +44,7 @@ Income:
 
 <br><br>
 
-Travel Frequency Chandigarh–Shimla:
-
+<label>Travel Frequency (Chandigarh–Shimla)</label>
 <select id="frequency">
 <option value="rare">Rare</option>
 <option value="regular">1–2 times/year</option>
@@ -59,9 +59,12 @@ Travel Frequency Chandigarh–Shimla:
 
 
 <div id="choice" style="display:none">
-<div id="cards"></div>
-</div>
 
+<h2>Choose your preferred bus</h2>
+
+<div id="cards"></div>
+
+</div>
 
 <script src="script.js"></script>
 
